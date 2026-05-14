@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MANNINI Fragrance</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#0b0b0b;
+color:#fff;
+font-family:'Poppins',sans-serif;
+overflow-x:hidden;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:20px;
+text-align:center;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+z-index:1000;
+border-bottom:1px solid rgba(212,175,55,0.3);
+}
+
+header h1{
+color:#d4af37;
+font-size:24px;
+font-family:'Playfair Display',serif;
+}
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.hero video{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-1;
+filter:brightness(40%);
+}
+
+.hero-content h2{
+font-size:4rem;
+color:#d4af37;
+margin-bottom:20px;
+}
+
+.hero-content p{
+font-size:1.2rem;
+color:#ddd;
+}
+
+.gold-btn{
+margin-top:20px;
+padding:14px 35px;
+border:none;
+border-radius:50px;
+background:#d4af37;
+color:#000;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.gold-btn:hover{
+background:#fff;
+transform:scale(1.05);
+}
+
+.section{
+padding:120px 20px;
+text-align:center;
+}
+
+.section h2{
+color:#d4af37;
+font-size:2.5rem;
+margin-bottom:50px;
+font-family:'Playfair Display',serif;
+}
+
+/* PRODUCTS */
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:1200px;
+margin:auto;
+}
+
+.card{
+background:#111;
+padding:20px;
+border-radius:25px;
+transition:0.4s;
+border:1px solid rgba(255,255,255,0.05);
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border:1px solid #d4af37;
+box-shadow:0 0 20px rgba(212,175,55,0.3);
+}
+
+.card img{
+width:100%;
+border-radius:20px;
+margin-bottom:15px;
+}
+
+.card h3{
+color:#d4af37;
+margin:15px 0;
+}
+
+.price{
+font-size:18px;
+margin-bottom:20px;
+}
+
+/* INFINITE SLIDER */
+.carousel-container{
+width:100%;
+overflow:hidden;
+padding:20px 0;
+border-top:1px solid rgba(212,175,55,0.3);
+border-bottom:1px solid rgba(212,175,55,0.3);
+margin-top:50px;
+}
+
+.carousel-track{
+display:flex;
+gap:20px;
+width:max-content;
+will-change:transform;
+}
+
+.carousel-item{
+background:#111;
+padding:12px 18px;
+border-radius:15px;
+display:flex;
+align-items:center;
+gap:10px;
+white-space:nowrap;
+color:#d4af37;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.carousel-item:hover{
+background:#d4af37;
+color:#000;
+}
+
+.carousel-item img{
+width:50px;
+height:50px;
+border-radius:10px;
+object-fit:cover;
+}
+
+/* POPUP */
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+z-index:9999;
+padding:20px;
+}
+
+.popup-content{
+background:#111;
+padding:30px;
+border-radius:25px;
+width:100%;
+max-width:500px;
+border:1px solid #d4af37;
+}
+
+.popup-content h3{
+color:#d4af37;
+margin-bottom:20px;
+text-align:center;
+}
+
+.popup-content input,
+.popup-content textarea,
+.popup-content select{
+width:100%;
+padding:14px;
+margin-bottom:15px;
+border:none;
+border-radius:10px;
+font-size:15px;
+}
+
+.total-box{
+background:#000;
+padding:15px;
+border-radius:10px;
+margin-bottom:15px;
+color:#d4af37;
+font-weight:bold;
+text-align:center;
+}
+
+.whatsapp-btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+background:#25D366;
+color:#fff;
+font-weight:bold;
+cursor:pointer;
+font-size:16px;
+}
+
+.close-btn{
+margin-top:15px;
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#d4af37;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* FLOAT */
+.float-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+color:#fff;
+text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+padding:50px 20px;
+text-align:center;
+background:#000;
+color:#888;
+margin-top:50px;
+}
+
+@media(max-width:768px){
+
+.hero-content h2{
+font-size:2.5rem;
+}
+
+.section h2{
+font-size:2rem;
+}
+
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>MANNINI FRAGRANCE</h1>
+</header>
+
+<section class="hero">
+
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-perfume-bottle-1607/1080p.mp4" type="video/mp4">
+</video>
+
+<div class="hero-content">
+<h2>Royal Elegance</h2>
+<p>Luxury Collection For Kings & Queens</p>
+
+<button class="gold-btn" onclick="openForm('MANNINI Collection')">
+SHOP NOW
+</button>
+
+</div>
+</section>
+
+<section class="section">
+
+<h2>Luxury Collection</h2>
+
+<div class="products">
+
+<div class="card" onclick="openForm('Dior Poison')">
+<img src="https://via.placeholder.com/300x300?text=Dior+Poison">
+<h3>Dior Poison</h3>
+<p class="price">R230</p>
+<button class="gold-btn">Order Now</button>
+</div>
+
+<div class="card" onclick="openForm('Tom Ford Oud Wood')">
+<img src="https://via.placeholder.com/300x300?text=Tom+Ford">
+<h3>Tom Ford Oud Wood</h3>
+<p class="price">R230</p>
+<button class="gold-btn">Order Now</button>
+</div>
+
+<div class="card" onclick="openForm('Black Opium')">
+<img src="https://via.placeholder.com/300x300?text=Black+Opium">
+<h3>Black Opium</h3>
+<p class="price">R230</p>
+<button class="gold-btn">Order Now</button>
+</div>
+
+</div>
+
+<!-- INFINITE SLIDER -->
+<div class="carousel-container">
+
+<div class="carousel-track" id="carouselTrack">
+
+<div class="carousel-item" onclick="openForm('Dior Poison')">
+<img src="https://via.placeholder.com/50">
+Dior Poison
+</div>
+
+<div class="carousel-item" onclick="openForm('Tom Ford Oud Wood')">
+<img src="https://via.placeholder.com/50">
+Tom Ford Oud Wood
+</div>
+
+<div class="carousel-item" onclick="openForm('Black Opium')">
+<img src="https://via.placeholder.com/50">
+Black Opium
+</div>
+
+<div class="carousel-item" onclick="openForm('Creed Aventos')">
+<img src="https://via.placeholder.com/50">
+Creed Aventos
+</div>
+
+<div class="carousel-item" onclick="openForm('One Million')">
+<img src="https://via.placeholder.com/50">
+One Million
+</div>
+
+<div class="carousel-item" onclick="openForm('Good Girl')">
+<img src="https://via.placeholder.com/50">
+Good Girl
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ORDER POPUP -->
+<div class="popup" id="orderForm">
+
+<div class="popup-content">
+
+<h3>Place Your Order</h3>
+
+<input type="text" id="fragrance" readonly>
+
+<input type="text" id="name" placeholder="Full Name">
+
+<input type="tel" id="phone" placeholder="Phone Number">
+
+<textarea id="address" placeholder="Delivery Address"></textarea>
+
+<select id="shipping" onchange="calculateTotal()">
+<option value="0">Select Shipping</option>
+<option value="60">Johannesburg - R60</option>
+<option value="100">Nationwide - R100</option>
+</select>
+
+<div class="total-box" id="total">
+Total: R230
+</div>
+
+<button class="whatsapp-btn" onclick="sendWhatsApp()">
+SEND ORDER VIA WHATSAPP
+</button>
+
+<button class="close-btn" onclick="closeForm()">
+CLOSE
+</button>
+
+</div>
+</div>
+
+<footer>
+© 2026 MANNINI Fragrance
+</footer>
+
+<a href="https://wa.me/27823728571" class="float-btn">
+💬
+</a>
+
+<script>
+
+/* OPEN ORDER FORM */
+function openForm(product){
+
+document.getElementById("orderForm").style.display="flex";
+
+document.getElementById("fragrance").value=product;
+
+}
+
+/* CLOSE FORM */
+function closeForm(){
+
+document.getElementById("orderForm").style.display="none";
+
+}
+
+/* CALCULATE TOTAL */
+function calculateTotal(){
+
+let shipping=document.getElementById("shipping").value;
+
+let total=230+Number(shipping);
+
+document.getElementById("total").innerHTML="Total: R"+total;
+
+}
+
+/* SEND WHATSAPP */
+function sendWhatsApp(){
+
+let fragrance=document.getElementById("fragrance").value;
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let address=document.getElementById("address").value;
+let shipping=document.getElementById("shipping").value;
+
+let total=230+Number(shipping);
+
+let message=
+`MANNINI FRAGRANCE ORDER
+
+Fragrance: ${fragrance}
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+Total: R${total}`;
+
+let url=`https://wa.me/27823728571?text=${encodeURIComponent(message)}`;
+
+window.open(url,'_blank');
+
+}
+
+/* INFINITE AUTO SLIDER */
+const track=document.getElementById("carouselTrack");
+
+track.innerHTML += track.innerHTML;
+
+let position=0;
+let speed=1;
+
+function autoSlide(){
+
+position += speed;
+
+if(position >= track.scrollWidth / 2){
+
+position = 0;
+
+}
+
+track.style.transform=`translateX(-${position}px)`;
+
+requestAnimationFrame(autoSlide);
+
+}
+
+autoSlide();
+
+</script>
+
+</body>
+</html>
